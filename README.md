@@ -6,11 +6,10 @@ Scrape data from PDF files using python.
 
 The `scripts` directory contains below scripts:
 
-`scripts/explore.py` - use this exploratory script to locate coordinates of text fields you are interested in.
+- `explore.py` - use this exploratory script to locate coordinates of text fields you are interested in.
+- `script.py` - input coordinates from the explore script into this script and run to extract desired fields to an output file.
 
-`scripts/script.py` - input coordinates from the explore script into this script and run to extract desired fields to an output file.
-
-The `files` directory contains sample ADF format pay stub template (chosen as example of a consistent structure) PDF file to be scraped.
+The `files` directory contains sample ADP format pay stub template (chosen as example of a consistent structure) PDF file to be scraped.
 
 ## Versioning
 
