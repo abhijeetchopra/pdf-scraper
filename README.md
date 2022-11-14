@@ -29,6 +29,8 @@ make list    # list all container and images
 
 make build   # build image
 
+make scan    # scan image
+
 make start   # start container
 
 make shell   # start shell in running container
