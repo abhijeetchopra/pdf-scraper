@@ -5,7 +5,7 @@ APP_NAME=pdf-scraper
 init:
 		@echo "ERROR: no Makefile target selected"
 		@echo ""
-		@echo "USAGE: make [list, build, start, stop, remove, clean]"
+		@echo "USAGE: make [list, build, scan, start, stop, remove, clean]"
 		@echo ""
 		@exit 1
 
@@ -30,6 +30,17 @@ build:
 		echo $$FILE_VERSION; \
 		VERSION=$${READ_VERSION:-$$FILE_VERSION}; \
 		docker build -t $(APP_NAME):$$VERSION .;
+
+.PHONY: scan
+scan:
+		@# scan container with snyk for high severity CVEs
+		@FILE_VERSION=$$(cat VERSION); \
+		echo "Enter version to build...(leave blank to read from VERSION file which currently is: $$FILE_VERSION)"; \
+		read READ_VERSION; \
+		echo $$READ_VERSION; \
+		echo $$FILE_VERSION; \
+		VERSION=$${READ_VERSION:-$$FILE_VERSION}; \
+		snyk container test --severity-threshold=high --exclude-base-image-vulns $(APP_NAME):$$VERSION;
 
 .PHONY: start
 start:
