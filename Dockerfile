@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:latest
 
 # update and upgrade
 RUN apt -y update && apt -y upgrade
